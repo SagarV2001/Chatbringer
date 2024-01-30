@@ -1,0 +1,17 @@
+{% include 'header.html' %}
+        <div class="form-container">
+            <h2>Sign Up</h2>
+            <form class="login-signup-form" action="{% url 'signup' %}" method="post">
+                {% csrf_token %}
+                <input class= "username-input" type="text" name="username" placeholder="Username" required>
+                <input class="email-input" type="email" name="email" placeholder="Email" required>
+                <input class="password-input" type="password" name="password" placeholder="Password" required>
+                <input class="cpassword-input" type="password" name="c-password" placeholder="Confirm Password" required>
+                <button class="signup-login-button" type="submit">Sign Up</button>
+            </form>
+            {% if error %}
+            <p class="error-message" style="color:red">{{error}}</p>
+            {% endif %}
+        </div>
+
+{% include 'footer.html' %}

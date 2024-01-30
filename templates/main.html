@@ -1,0 +1,20 @@
+{% load static %}
+{% include 'header.html' %}
+
+<div class="user-list-container">
+    <ul class="user-list">
+        {% for user in user_list %}
+        <li class="user">
+            <ul class="user-items">
+                <img class="user-img" src="{{ user.profile_image.url }}" alt="profile image">
+                <div class="user-desc">
+                    <p class="user-name">{{user.username}}</p>
+                    <a class="accept-reject-add-profile-button" href="/chat/{{ user.username }}"><i class="fa fa-comment" aria-hidden="true"></i></a>
+
+                </div>
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% include 'footer.html' %}

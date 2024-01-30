@@ -1,0 +1,31 @@
+{% load static %}
+{% include 'header.html' %}
+
+<div class="user-list-container">
+    <ul class="user-list">
+        {% for user in user_list %}
+        <li class="user">
+            <ul class="user-items">
+                <img class="user-img" src="{{ user.profile_image.url }}" alt="profile image">
+                <div class="user-desc">
+                    <form method="post" action="{% url 'send-friend-request' %}">
+                        {% csrf_token %}
+                        <p class="user-name">{{user.username}}</p>
+                        <div class="accept-reject-add-profile-button-container">
+                            <input type="hidden" name="selected-username" value="{{ user.username }}">
+                            {% if user.username == username %}
+                            <a class="accept-reject-add-profile-button" href="/profile-page"><i class="fa fa-user" aria-hidden="true"></i></a>
+                            {% elif user.username in friend_list %}
+                            <a class="accept-reject-add-profile-button" href="/chat/{{ user.username }}"><i class="fa fa-comment" aria-hidden="true"></i></a>
+                            {% else %}
+                            <button class="accept-reject-add-profile-button" ><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            {% endif %}
+                        </div>
+                    </form>
+                </div>
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% include 'footer.html' %}

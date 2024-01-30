@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chatbringer</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Abel&family=Nunito&family=Roboto&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class="navbar-space"></div>
+        <div class="navbar">
+            <h1 class="brand-name navbar-item">Chatbringer</h1>
+            {% if alt_text %}
+                <div class="signup-login-search-bar">{{alt_text|safe}}</div>
+            {% else %}
+                <div class="signup-login-search-bar">
+                    <a class='friend-requests-button navbar-item' href="/friend-requests"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                    <a class='friend-requests-button navbar-item' href="/main"><i class="fa fa-comment" aria-hidden="true"></i></a>
+                    <a class='friend-requests-button navbar-item' href="/profile-page"><i class="fa fa-user" aria-hidden="true"></i></a>
+                    <form class="search-bar-container navbar-item" action="{%url 'search-user'%}">
+                        <input class="search-bar-text" type="text" name="search-text" placeholder='Search a user'>
+                        <button class="search-button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </form>
+                    <a class='sign-log-button navbar-item' href="/logout">Log out</a>
+                </div>
+            {% endif %}
+        </div>
