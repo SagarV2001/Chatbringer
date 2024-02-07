@@ -25,7 +25,7 @@
     <div class="message-text-container">
         <form class="message-form"action="{% url 'send-message' %}" method="post">
             {% csrf_token %}
-            <input class="message-text-box" type="text" name="message-text" placeholder="Enter message to Send.">
+            <input class="message-text-box" type="text" name="message-text" placeholder="Enter message to Send." autocomplete="off">
             <input type="hidden" name="receiver-name" value="{{ other_user.username }}">
             <button class="send-message-button" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
         </form>

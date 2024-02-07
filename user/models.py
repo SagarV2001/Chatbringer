@@ -6,7 +6,7 @@ class User(models.Model):
     password = models.CharField(max_length=50,blank=False)
     profile_image = models.ImageField(upload_to='profile_images', null=True, blank=True)
     def __str__(self):
-        return self.username
+        return f'{self.username} ({self.email})'
     def get_friends(self):
         friendships = Friendship.objects.filter(Q(user1__username=self.username)|Q(user2__username=self.username))
         return [friendship.user1 if friendship.user2.username==self.username else friendship.user2 for friendship in friendships]

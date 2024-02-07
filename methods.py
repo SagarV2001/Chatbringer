@@ -2,6 +2,8 @@ from random import Random
 import smtplib
 import os
 from user.models import User
+from PIL import Image
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
@@ -44,8 +46,6 @@ def send_otp(request,email):
     except Exception as e:
         print("Failed to send email:", e)
         return None
-
-
 # html codes for conditional pages
 alt_text1 = '''<a class='sign-log-button navbar-item'href="/signup">SignUp</a>
                <a class='sign-log-button navbar-item'href="/login">Login</a>'''

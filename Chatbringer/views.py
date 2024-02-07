@@ -20,6 +20,7 @@ def get_index(request):
         response = clear_cookies(response)
         return response
 def get_login(request):
+    # User.objects.get(username = 'user_any').delete()
     print(User.objects.all())
     # User.objects.all().delete()
     print(FriendRequest.objects.all())
@@ -159,7 +160,7 @@ def get_profile_page(request):
     main_user = authenticated(username,password)
     # debug line
     if main_user:
-        return render(request, 'profile.html')
+        return render(request, 'profile.html',{'curr_user':main_user})
     else:
         return redirect(get_login)
 def get_friend_requests_page(request):
@@ -199,4 +200,16 @@ def send_message(request):
             return redirect(f"/chat/{receiver_name}")
         else:
             print("Frontend tempered.")
+    return redirect(get_login)
+def set_profile_image(request):
+    username = request.COOKIES.get('username')
+    password = request.COOKIES.get('password')
+    main_user = authenticated(username, password)
+    if request.method == 'POST' and main_user and request.FILES.get('uploaded-image'):
+        print('image got')
+        image = request.FILES.get('uploaded-image')
+        main_user.profile_image = image
+        main_user.save()
+        print('image uploaded')
+        return redirect(get_profile_page)
     return redirect(get_login)

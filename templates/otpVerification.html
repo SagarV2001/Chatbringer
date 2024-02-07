@@ -3,8 +3,8 @@
             <h2>Verify Email</h2>
             <form class="verification-form" action="{% url 'verify-email' %}" method="post">
                 {% csrf_token %}
-                <input type="text" name="OTP" placeholder="Please enter OTP here" required>
-                <button type="submit">Submit</button>
+                <input class= "username-input" type="text" name="OTP" placeholder="Please enter OTP here" required>
+                <button class="signup-login-button" type="submit">Submit</button>
             </form>
             {% if error %}
             <p class="error-message" style="color:red">{{error}}</p>

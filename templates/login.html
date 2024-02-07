@@ -3,9 +3,9 @@
             <h2>Login</h2>
             <form class="login-signup-form" action="{% url 'login' %}" method="post">
                 {% csrf_token %}
-                <input type="text" name="username" placeholder="Username" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <button type="submit">Login</button>
+                <input class= "username-input" type="text" name="username" placeholder="Username" autocomplete="off" required>
+                <input class="password-input" type="password" name="password" placeholder="Password" autocomplete="off" required>
+                <button class="signup-login-button" type="submit">Login</button>
             </form>
             {% if error %}
             <p class="error-message" style="color:red">{{error}}</p>

@@ -36,4 +36,5 @@ urlpatterns = [
     path('profile-page/',views.get_profile_page),
     path('friend-requests/',views.get_friend_requests_page),
     path('process-friend-request/<str:action>/',views.process_friend_request,name='process-friend-request'),
+    path('set-profile-image/',views.set_profile_image,name='change-image'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

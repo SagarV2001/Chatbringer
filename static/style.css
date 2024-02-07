@@ -1,327 +1,417 @@
-*{
-    margin:0;
-    padding:0;
-    font-family: 'Roboto', sans-serif;
-}
+/* Reset some default styles for the body and margin to ensure the navbar stays at the top */
 html{
     height:100%;
-    width:100%;
 
 }
-body{
-    font-family: Arial, sans-serif;
+body {
     margin: 0;
     padding: 0;
-
-    justify-content: center;
+    font-family: 'Roboto', sans-serif;  /* Use the Roboto font */
+    height:100%;
+    justify-content: center; /* Center horizontally */
     align-items: center;
-    height: 100%;
-    width:100%;
-    background-color: #5b80a4;
-    position:relative;
-}
-ul{
-    margin:0;
-    padding:0;
-    border:0;
-}
-.form-container {
-    margin:5% auto;
-    width: 300px;
-    padding: 20px;
-    background-color: #DCF2F1;
-    border: 1px solid #34495e;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.form-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-.form-container input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-.form-container button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #3498db;
-    color: #fff;
-    cursor: pointer;
+    overflow:hidden;
+    background-image: url("media/background-image.png");
 }
 
-.form-container button:hover {
-    background-color: #2980b9;
+/* Style for the fixed-position navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;  /* Change this color to your preferred background color */
+    height:10%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Optional: Add a subtle shadow */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;  /* Ensure the navbar appears above other elements */
+    font-family: 'Roboto', sans-serif;  /* Use the Roboto font */
 }
 .navbar-space{
     width:100%;
-    height:14%;
+
+    height:10%;
 }
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: #1b2631;
-  color: white;
-  position:fixed;
-  top:0px;
-  width:100%;
-  height:10%;
-  z-index:1;
+/* Style for the brand name */
+.brand-name {
+    color: white;  /* Change this color to your preferred text color */
+    margin: 0;
+}
+
+/* Style for the navbar items */
+.navbar-item {
+    color: white;  /* Change this color to your preferred text color */
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+/* Style for the search bar container */
+.search-bar-container {
+    display: flex;
+}
+
+/* Style for the search bar input */
+.search-bar-text {
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+}
+
+/* Style for the search button */
+.search-button {
+    background-color: #555;  /* Change this color to your preferred button color */
+    color: white;  /* Change this color to your preferred text color */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Hover effect for the search button */
+.search-button:hover {
+    background-color: #777;  /* Change this color to your preferred button color on hover */
 }
 .signup-login-search-bar{
     display:flex;
 }
-/* Styles for the Messenger title */
-.brand-name {
-  margin: 0;
-}
-
-/* Styles for the search bar */
-.search-bar-container {
-  display: flex;
-  align-items: center;
-}
-
-.search-bar-text {
-  padding: 5px;
-  border: 1px solid #ddd;
-  height:22px;
-  border-radius: 4px;
-  background-color:#5b80a4;
-}
-
-.search-button {
-  padding: 6px 10px;
-  margin-left: 5px;
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  height:35px;
-  padding: 8px 12px;
-}
-
-.search-button i {
-  font-size: 16px;
-}
-
-.search-button:hover {
-  background-color: #0056b3;
-  color: white;
-}
 .friend-requests-button{
-  font-size: 30px;
-  height:20px;
-  color:#3498db;
+    font-size:1.5rem;
 }
 
-.friend-requests-button:hover {
-  color:#2980b9;
+
+/* Style for the form container */
+.form-container {
+    margin: 50px auto;
+    width: 400px;
+
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-/* Styles for the logout link */
-.sign-log-button{
-  text-decoration: none;
-  color: white;
-  padding: 8px 12px;
-  height: 20px;
-  border-radius: 4px;
-  background-color:#3498db;
+/* Style for the form heading */
+.form-container h2 {
+    text-align: center;
+    color: #333;
 }
 
-.sign-log-button:hover {
-  background-color: #2980b9;
+/* Style for the login-signup form */
+.login-signup-form {
+    display: flex;
+    flex-direction: column;
 }
-.navbar-item{
-    margin:10px 20px;
+
+/* Style for form inputs */
+.username-input,
+.password-input,
+.cpassword-input,
+.email-input{
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
 }
-.user-list-container{
-    position:relative;
-    height:84%;
-    width:100%;
-    overflow-y:auto;
-    z-index:0;
-    overflow-x:hidden;
+
+/* Style for the login button */
+.signup-login-button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
 }
-.user-list{
-    list-style-type:none;
-    height:100%;
-    width:40%;
+
+/* Hover effect for the login button */
+.signup-login-button:hover {
+    background-color: #555;
+}
+
+/* Style for error message */
+.error-message {
+    text-align: center;
+    margin-top: 15px;
+}
+
+
+
+
+
+/* Style for the profile container */
+.profile-container {
+    max-width: 800px;
+    width:500px;
+    margin: 20px auto;
+
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align:center;
+
+}
+
+/* Style for the profile image */
+.profile-image {
+    width: 150px; /* Adjust the size as needed */
+    height:150px;
+    border-radius: 10%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 5);
+    margin-bottom: 20px;
+
+}
+
+/* Style for the profile form */
+.profile-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style for user details section */
+.user-details {
+    margin-bottom: 20px;
+}
+
+/* Style for username and email labels */
+.username-label,
+.email-label {
+    font-weight: bold;
+    display:block;
+    margin-bottom: 5px;
+}
+
+/* Style for username and email inputs */
+.username-profile-page,
+.email-profile-page {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Style for the image upload section */
+.image-upload-section {
+    margin-bottom: 20px;
+
+}
+
+/* Style for change image label and input */
+.change-image-label,
+.change-image-input {
+    margin-bottom: 10px;
+    display:block;
+
+}
+.change-image-input {
+    margin-left:40%;
+}
+
+/* Style for the upload image button */
+.image-upload-section button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Hover effect for the upload image button */
+.image-upload-section button:hover {
+    background-color: #555;
+}
+
+
+
+/* Style for the user list container */
+.user-list-container {
+    width: 100%; /* Adjust the width as needed */
+     /* Adjust the background color as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 90%; /* Full height of the viewport */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+/* Style for the user list */
+.user-list {
+    background-color: #f5f5f5;
+    min-width: 380px;
     margin:0;
+    max-width:30%;
+    list-style: none;
+    padding: 0;
+    height: 100%;
 }
-.user{
-    color:white;
-    background-color:#3498db;
-    position:relative;
-    border-radius:10px;
-    height:10%;
-    padding:2%;
-    width:32%;
-    margin:1.5% auto;
-    min-width:90%;
-    min-height:110px;
-    white-space:nowrap;
-    transition: 0.5s ease-in-out;
-}
-.user:hover{
-    background-color:#16537c;
+
+/* Style for each user */
+.user {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    height:15%;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
 }
 .user-items{
-    display:flex;
     height:100%;
     width:100%;
-    padding-left:0;
-}
-.user-desc{
-    padding:1%;
-    margin:0% 2%;
-    max-width:40%;
-    overflow-wrap: break-word;
+    display: flex;
+    justify-content:flex-start;
 
 }
-.user-msg{
-    width:100%;
-    white-space: pre-wrap;
-    word-wrap:break-word;
-}
-.user-name{
-    font-weight:bold;
-    font-size:24px;
-    position:relative;
-    vertical-align:top;
-    margin-left:30px;
-    display:inline-block;
-    min-width:150px;
-
-}
-.user-img{
-    border-radius:100%;
-    height:100px;
-
+/* Style for the user image */
+.user-img {
+    width: 70px; /* Adjust the width as needed */
+    height:70px; /* Adjust the height as needed */
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
-.accept-reject-add-profile-button-container{
+/* Style for the user description */
+.user-desc {
+    display:flex;
+    align-items: center;
 
-}
-.accept-reject-add-profile-button{
-    position:relative;
-    border-style:none;
-    font-size: 50px;
-    border-radius: 4px;
-    transition:0.5s;
-    background-color:inherit;
-    display:inline-block;
-    color:inherit;
-    text-align:right;
-}
-
-.accept-reject-add-profile-button:hover{
-    color:#FF9843;
-    font-size: 52px;
+    min-width:50%;
+    justify-content:space-around;
 }
 .user-desc form{
     display:flex;
+    width:100%;
 }
 
-.chat-content{
-    position:relative;
-    justify-content: center;
-    height:89%;
-    width:90%;
-    margin:auto;
+/* Style for the user name */
+.user-name {
+    margin: 0;
+    width:100px;
+    font-weight: bold;
+    font-size:1.3rem;
+    margin:0 10%;
 }
-.chat-container{
+
+.accept-reject-add-profile-button-container {
     display:flex;
-    width:100%;
-    height:80%;
-
 }
-.messages{
-    width:100%;
-    height:100%;
-    color:white;
-}
-
-.message-text-container {
-    width: 100%;
-    height: 14%;
-    left: 0;
-    position: fixed;
-    bottom: 0;
-    background-color: #1b2631;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 10px;
-}
-
-.message-form {
-    display: flex;
-    width: 100%;
+/* Style for the profile button */
+.accept-reject-add-profile-button {
     margin:5%;
+    color: #333;
+    font-size:2rem;
+    text-decoration: none;
+    border:none;
+    background-color:inherit;
+    transition:0.1s;
 }
-
-.message-text-box {
-    color:white;
-    height: 25px;
-    width:85%;
-    border-radius: 4px;
-    border: none;
-    padding: 8px; /* Increased padding for better aesthetics */
-    font-size: 14px;
-    background-color: #2c3e50;
+.accept-reject-add-profile-button:hover {
+    color: black;
 }
-
-.send-message-button {
-
-    width: 40px;
-    font-size: 22px;
-    background-color: #2c3e50;
-    border: none;
-    color: #3498db;
-    cursor: pointer;
-    transition:0.5s;
-}
-.send-message-button:hover {
-    font-size: 23px;
+/* Optional: Hover effect for the user card */
+.user:hover {
+    background-color: #e0e0e0; /* Adjust the background color on hover as needed */
 
 }
-.received{
-    padding:1%;
-    min-height:70px;
-    width:45%;
-    text-align:left;
-    margin-right:auto;
+
+
+
+
+/* Style for the chat content container */
+.chat-content {
+
+    height: 100%; /* Full height of the viewport */
+}
+
+/* Style for the chat container */
+.chat-container {
+    flex: 1; /* Take up remaining space */
+    overflow-y: auto; /* Allow vertical scrolling if needed */
+    height:73%;
+    padding: 20px;
+}
+
+/* Style for the messages */
+.messages {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style for the received message container */
+.received-container {
+    align-self: flex-start;
+    margin-bottom: 15px;
+    max-width:65%;
+    min-width:200px;
+}
+
+/* Style for the sent message container */
+.sent-container {
+    align-self: flex-end;
+    margin-bottom: 15px;
+    max-width:65%;
+    min-width:200px;
+}
+
+/* Style for received and sent messages */
+.received, .sent {
+    max-width: 100%; /* Adjust the maximum width as needed */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
     word-wrap: break-word;
 }
-.sent{
-    padding:1%;
-    min-height:70px;
-    width:40%;
-    margin-left:auto;
-    text-align:left;
-    word-wrap: break-word;
+
+/* Style for received messages */
+.received {
+    background-color: #e0e0e0; /* Adjust background color for received messages */
 }
-.received-container{
-    width:100%;
-}
-.sent-container{
-    width:100%;
-}
-.message{
-    margin:1%;
+
+/* Style for sent messages */
+.sent {
+    background-color: #4CAF50; /* Adjust background color for sent messages */
+    color: white; /* Set text color for sent messages */
 }
 .timestamp{
-    font-size:0.7rem;
-    text-align:right;
-    margin:1%;
+    font-size:0.6rem;
+}
+.message-form{
+    width:100%;
+    text-align:left;
+    padding:1%;
+
+}
+/* Style for the message text box */
+.message-text-box {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 90%;
+
+}
+
+/* Style for the send message button */
+.send-message-button {
+    background-color: #4CAF50; /* Set button color for sending messages */
+    color: white; /* Set text color for the button */
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Hover effect for the send message button */
+.send-message-button:hover {
+    background-color: #45a049; /* Adjust button color on hover */
 }

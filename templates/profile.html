@@ -1,4 +1,20 @@
 {% load static %}
 {% include 'header.html' %}
-<h1>Profile page</h1>
+<div class="profile-container">
+    <img class="profile-image" src="{{curr_user.profile_image.url}}" alt="Profile Image">
+    <form class="profile-form" action="{% url 'change-image' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="user-details">
+            <label class="username-label" for="username">Username:</label>
+            <input class="username-profile-page" type="text" value="{{curr_user.username}}" readonly>
+            <label class="email-label" for="email">Email:</label>
+            <input class="email-profile-page" type="text" value="{{curr_user.email}}" readonly>
+        </div>
+        <div class="image-upload-section">
+            <label class="change-image-label" for="uploaded-image">Change Profile Image:</label>
+            <input class="change-image-input" type="file" name="uploaded-image" accept="image/*">
+            <button type="submit">Upload Image</button>
+        </div>
+    </form>
+</div>
 {% include 'footer.html' %}
